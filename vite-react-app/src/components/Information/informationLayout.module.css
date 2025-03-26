@@ -1,0 +1,12 @@
+.InformationLayout {
+	box-sizing: border-box;
+	width: 300px;
+	font-size: 30px;
+	height: max-content;
+	font-weight: 600;
+	color: rgb(237, 219, 193);
+	background-color: rgb(41, 63, 226);
+	border-radius: 10px;
+	text-align: center;
+	margin-top: 10%;
+}

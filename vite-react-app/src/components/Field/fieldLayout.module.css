@@ -1,0 +1,17 @@
+.field_button {
+	border-color: blueviolet;
+	font-size: 20px;
+	width: 100px;
+	height: 100px;
+	box-sizing: border-box;
+}
+
+.field {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 300px;
+	height: 300px;
+	margin-bottom: 10%;
+	margin-top: 10%;
+}
