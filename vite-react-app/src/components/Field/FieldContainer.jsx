@@ -1,4 +1,6 @@
-import FieldLayout from './FieldLayout';
+import FieldLayout from './FieldLayout.jsx';
+import defineChampion from '../../utility/defineChampion.js';
+import isEmptyCells from '../../utility/isEmptyCells.js';
 
 export default function FieldContainer({
 	field,
@@ -6,13 +8,20 @@ export default function FieldContainer({
 	currentPlayer,
 	setField,
 	setCurrentPlayer,
+	setIsGameEnded,
+	isDraw,
+	setIsDraw,
 }) {
 	function toggleCurrentPlayer() {
-		currentPlayer == 'X' ? setCurrentPlayer('O') : setCurrentPlayer('X');
+		setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+		// currentPlayer == 'X' ? setCurrentPlayer('O') : setCurrentPlayer('X');
 	}
-	function markCell() {
+
+	function HandleClickOnButton(event) {
+		let nextField;
+
 		if (field[event.target.closest('button').id] === '' && isGameEnded === false) {
-			const nextField = field.map((item, index) => {
+			nextField = field.map((item, index) => {
 				if (index == event.target.closest('button').id) {
 					return (item = `${currentPlayer}`);
 				}
@@ -24,14 +33,24 @@ export default function FieldContainer({
 			});
 
 			setField(nextField);
+			setIsGameEnded(defineChampion(nextField));
+		}
+
+		defineChampion(nextField)
+			? setCurrentPlayer(currentPlayer)
+			: toggleCurrentPlayer();
+
+		if (isEmptyCells(nextField) === false && defineChampion(nextField) === false) {
+			setIsDraw(true);
 		}
 	}
-	function defineChampion() {}
 
-	function HandleClickOnButton(event) {
-		toggleCurrentPlayer();
-		defineChampion();
-	}
-
-	return <FieldLayout field={field} click={HandleClickOnButton} />;
+	return (
+		<FieldLayout
+			field={field}
+			isDraw={isDraw}
+			isGameEnded={isGameEnded}
+			click={HandleClickOnButton}
+		/>
+	);
 }

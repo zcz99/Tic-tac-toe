@@ -3,7 +3,6 @@ import FieldContainer from './components/Field/FieldContainer.jsx';
 import './Game.module.css';
 import InformationContainer from './components/Information/InformationContainer.jsx';
 import ButtonStartAgain from './components/ButtonStartAgain/ButtonStartAgain.jsx';
-import styles from './Game.module.css';
 
 export default function Game() {
 	const [currentPlayer, setCurrentPlayer] = useState('X');
@@ -24,6 +23,9 @@ export default function Game() {
 				currentPlayer={currentPlayer}
 				setField={setField}
 				setCurrentPlayer={setCurrentPlayer}
+				setIsGameEnded={setIsGameEnded}
+				isDraw={isDraw}
+				setIsDraw={setIsDraw}
 			/>
 			<ButtonStartAgain
 				setCurrentPlayer={setCurrentPlayer}
