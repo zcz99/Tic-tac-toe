@@ -1,6 +1,7 @@
 import FieldLayout from './FieldLayout.jsx';
 import defineChampion from '../../utility/defineChampion.js';
 import isEmptyCells from '../../utility/isEmptyCells.js';
+import PropTypes from 'prop-types';
 
 export default function FieldContainer({
 	field,
@@ -54,3 +55,14 @@ export default function FieldContainer({
 		/>
 	);
 }
+
+FieldContainer.PropTypes = {
+	field: PropTypes.string,
+	setField: PropTypes.string,
+	currentPlayer: PropTypes.string,
+	setCurrentPlayer: PropTypes.string,
+	isGameEnded: PropTypes.bool,
+	setIsGameEnded: PropTypes.bool,
+	isDraw: PropTypes.bool,
+	setIsDraw: PropTypes.bool,
+};

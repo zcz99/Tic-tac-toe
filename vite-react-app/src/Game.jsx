@@ -17,6 +17,7 @@ export default function Game() {
 				isDraw={isDraw}
 				currentPlayer={currentPlayer}
 			/>
+
 			<FieldContainer
 				field={field}
 				isGameEnded={isGameEnded}
